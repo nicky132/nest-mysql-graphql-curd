@@ -7,12 +7,12 @@ import { UserEntity } from './entities/user.entity';
 import { BaseService, IPaginationOptions } from '../../globals/base.service';
 
 @Injectable()
-export class UserService {
+export class UserService extends BaseService {
   constructor(
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
   ) {
-    // super(userRepository);
+    super(userRepository);
   }
   create(createUserDto: CreateUserDto) {
     this.userRepository.create(createUserDto);
@@ -21,6 +21,10 @@ export class UserService {
 
   findAll() {
     return this.userRepository.find();
+  }
+
+  findAndCount(options?: IPaginationOptions) {
+    return this.findListAndPage(options);
   }
 
   findOne(id: number) {
@@ -35,10 +39,5 @@ export class UserService {
 
   remove(id: number) {
     return this.userRepository.delete(id);
-  }
-
-  // 添加分页服务方法
-  findAndCount(options?: IPaginationOptions) {
-    return this.findListAndPage(options);
   }
 }

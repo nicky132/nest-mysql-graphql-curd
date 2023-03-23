@@ -3,7 +3,7 @@ import {
   Get,
   Post,
   Body,
-  Patch,
+  Put,
   Param,
   Delete,
   Query,
@@ -11,19 +11,11 @@ import {
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { getNumber } from '../../utils';
+import { getNumber } from 'src/utils/indes';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
-
-  @Get('page')
-  findAndCount(@Query() query: { page?: number; size?: number } = {}) {
-    const { page, size } = query;
-    return this.userService.findAndCount({
-      pagination: { page: getNumber(page), size: getNumber(size) },
-    });
-  }
 
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
@@ -35,12 +27,20 @@ export class UserController {
     return this.userService.findAll();
   }
 
+  @Get('page')
+  findAndCount(@Query() query: { page?: number; size?: number } = {}) {
+    const { page, size } = query;
+    return this.userService.findAndCount({
+      pagination: { page: getNumber(page), size: getNumber(size) },
+    });
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.userService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.userService.update(+id, updateUserDto);
   }

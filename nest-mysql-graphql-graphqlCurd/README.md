@@ -43,6 +43,17 @@ $ yarn run start:dev
 
 # production mode
 $ yarn run start:prod
+
+# https://juejin.cn/post/7123878968809242660
+{
+  users {
+    id,
+    username,
+    email,
+  }
+}
+#graphql
+$ http://127.0.0.1:3000/graphql
 ```
 
 ## Test

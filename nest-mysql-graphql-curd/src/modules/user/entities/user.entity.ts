@@ -19,6 +19,7 @@ export class UserEntity {
     width: 255,
     nullable: false,
     comment: '用户名',
+    default: '',
   })
   username: string;
 
@@ -27,6 +28,7 @@ export class UserEntity {
     width: 255,
     nullable: true,
     comment: '邮件',
+    default: '',
   })
   email: string;
 
@@ -35,6 +37,7 @@ export class UserEntity {
     width: 255,
     nullable: true,
     comment: '密码',
+    default: '',
   })
   password: string;
 

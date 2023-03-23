@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 // 定义graphql 数据模型，可以与共用user实体类
 import { Field, Int, ObjectType } from '@nestjs/graphql';
+
 @ObjectType()
 @Entity('user')
 export class UserEntity {
@@ -23,6 +24,7 @@ export class UserEntity {
     width: 255,
     nullable: false,
     comment: '用户名',
+    default: '',
   })
   username: string;
 
@@ -32,6 +34,7 @@ export class UserEntity {
     width: 255,
     nullable: true,
     comment: '邮件',
+    default: '',
   })
   email: string;
 
@@ -41,6 +44,7 @@ export class UserEntity {
     width: 255,
     nullable: true,
     comment: '密码',
+    default: '',
   })
   password: string;
 

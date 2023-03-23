@@ -43,6 +43,21 @@ $ yarn run start:dev
 
 # production mode
 $ yarn run start:prod
+
+# post
+http://127.0.0.1:3000/user?username=wujian&password=123456&email=wujian@qq.com
+
+#get
+http://127.0.0.1:3000/user
+
+#put
+http://127.0.0.1:3000/user/13
+
+# delete
+http://127.0.0.1:3000/user/1
+
+# curd
+$ http://127.0.0.1:3000
 ```
 
 ## Test
