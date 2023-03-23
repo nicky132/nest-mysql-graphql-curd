@@ -23,7 +23,7 @@ import { join } from 'path';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'Hhq87776153*', // 数据库密码，自己定义的
+      password: '123456', // 数据库密码，自己定义的
       database: 'nest-mysql-graphql', // 数据库名称，提前建好
       entities: [UserEntity],
       synchronize: true,
